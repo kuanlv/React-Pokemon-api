@@ -1,0 +1,8 @@
+.App-header {
+    position: absolute;
+    width: 100%;
+    height: 12vh;
+    z-index: 2; /* z-index higher, they will be on top */
+    transition: background-color .3s ease-out;
+    background-color: rgba(0, 91, 97,0.85);
+}
