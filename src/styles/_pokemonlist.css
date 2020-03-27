@@ -1,0 +1,17 @@
+.pokemonlist {
+    margin-top: 20px;
+}
+
+.list{
+    text-align: center;
+    list-style: none;
+}
+
+.list li {
+    margin: 7px auto 7px auto;
+}
+
+.list a {
+    text-decoration: none;
+    text-transform: uppercase;
+}

@@ -3,7 +3,10 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Navigation from './component/Navigation';
 import Headline from './component/Headline';
+import Landing from './component/Landing';
 import PokemonList from './component/PokemonList';
+import Footer from './component/Footer';
+import Pokemon from './component/Pokemon';
 
 function App() {
   return (
@@ -14,10 +17,12 @@ function App() {
         </header>
         <Headline />
         <div className='App-body'>
-          <h1>Welcome to Palette Town</h1>
+          <Route exact path='/' component={Landing} />
+          <Route exact path='/pokemon/page/:page' component={PokemonList} />
+          <Route exact path='/pokemon/:id' component={Pokemon} />
         </div>
+        <Footer />
       </div>
-    <Route path='/pokemons/page/0' exact component={PokemonList} />
     </Router>
   );
 }
