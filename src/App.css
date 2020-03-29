@@ -2,4 +2,7 @@
 @import 'styles/_header.css';
 @import 'styles/_headline.css';
 @import 'styles/_pokemonlist.css';
-@import 'styles/_footer.css'
+@import 'styles/_footer.css';
+@import 'styles/_landing.css';
+@import 'styles/_error.css';
+@import 'styles/_pokemon.css';

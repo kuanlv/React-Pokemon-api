@@ -23,7 +23,7 @@
     margin-top: auto;
     margin-bottom: auto;
     height: 10vh;
-    padding-left: 60%;
+    padding-left: 50%;
 }
 
 .nav-bar ul {
@@ -44,7 +44,7 @@
 .nav-bar a {
     font-size: larger;
     text-decoration: none;
-    color: rgb(136, 177, 23);
+    color: #d9f2b4;
     font-weight: bolder;
 }
 

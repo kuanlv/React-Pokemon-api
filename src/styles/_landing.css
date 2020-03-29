@@ -1,0 +1,28 @@
+.landing-h1 {
+    text-align: center;
+}
+
+.landing-intro {
+    height: 83vh;
+}
+
+.landing-intro-pokemons {
+    float: left;
+    text-align: center;
+    width: 33%;
+    height: 73vh;
+}
+
+.landing-intro-berries {
+    float: left;
+    text-align: center;
+    width: 33%;
+    height: 73vh;
+}
+
+.landing-intro-machines {
+    text-align: center;
+    float: right;
+    width: 33%;
+    height: 73vh;
+}

@@ -1,0 +1,12 @@
+.pokemon {
+    height: 53vh;
+    text-align: center;
+}
+
+.pokemon li {
+    list-style: none;
+}
+
+.pokemon img {
+    width: 15%;
+}

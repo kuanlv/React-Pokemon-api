@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const PokemonList = (props) => {
+const BerryList = (props) => {
     const [listData, setListData] = useState(undefined);
     const [nextUrl, setNext] = useState(0);
     const [previousUrl, setPrevious] = useState(0);
@@ -15,7 +15,7 @@ const PokemonList = (props) => {
     useEffect(() => {
         async function fetch() {
             try {
-                const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=${page * 20}&limit=20`);
+                const { data } = await axios.get(`https://pokeapi.co/api/v2/berry/?offset=${page * 20}&limit=20`);
                 const { results, next, previous } = data;
                 setListData(results);
                 setNext(next);
@@ -33,18 +33,18 @@ const PokemonList = (props) => {
         let { name } = result;
         let { url } = result;
         id++;
-        return <Link key={id} to={`/pokemon/${page*20 + id}`}>
+        return <Link key={id} to={`/berries/${page*20 + id}`}>
             <li key={url}>{name}</li>
         </Link>
     });
 
     if (previousUrl != null) {
         let count = Number.parseInt(page) - 1;
-        previousPage = <Link to={`/pokemon/page/${count}`}><button className='page-nav'>Previous Page</button></Link>
+        previousPage = <Link to={`/berries/page/${count}`}><button className='page-nav'>Previous Page</button></Link>
     }
     if (nextUrl != null) {
         let count = Number.parseInt(page) + 1;
-        nextPage = <Link to={`/pokemon/page/${count}`}><button className='page-nav'>Next Page</button></Link>
+        nextPage = <Link to={`/berries/page/${count}`}><button className='page-nav'>Next Page</button></Link>
     }
 
     return (
@@ -60,4 +60,4 @@ const PokemonList = (props) => {
     )
 }
 
-export default PokemonList;
+export default BerryList;
