@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const Berry = (props) => {
     let [berry, setBerry] = useState(undefined);
+    let [error, setError] = useState(false);
     const id = props.match.params.id;
 
     useEffect(() => {
@@ -12,6 +13,7 @@ const Berry = (props) => {
                 console.log(data);
                 setBerry(data);
             } catch (e) {
+                setError(true);
                 console.log(e);
             }
         };
@@ -19,8 +21,13 @@ const Berry = (props) => {
     }, [id])
 
     let ul = null;
-    if (Number.parseInt(id) > 64)
-        return <h1 className='error'>404: Page Not Found!</h1>
+    // if (Number.parseInt(id) > 64)
+    if (error)
+        return (
+            <div className='error'>
+                <h1>404: Page Not Found!</h1>
+            </div>
+        )
 
     if (berry) {
         ul = <ul>

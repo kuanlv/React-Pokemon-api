@@ -3,9 +3,9 @@ import axios from 'axios';
 
 const Pokemon = (props) => {
     let [poke, setPokemon] = useState(undefined);
+    let [error, setError] = useState(false);
     let id = props.match.params.id;
     let img = null;
-    let flag = null;
 
     useEffect(() => {
         async function getPokemon() {
@@ -13,15 +13,19 @@ const Pokemon = (props) => {
                 const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
                 setPokemon(data);
             } catch (e) {
-                console.log('here');
+                setError(true);
                 console.log(e);
             }
         }
         getPokemon();
     }, [id])
 
-    if (isNaN(id) || Number.parseInt(id) > 964)
-        return <h1 className='error'>404: Page Not Found</h1>
+    if (error)
+        return (
+            <div className='error'>
+                <h1>404: Page Not Found!</h1>
+            </div>
+        )
 
     let ul = null;
     if (poke) {
@@ -33,12 +37,6 @@ const Pokemon = (props) => {
             <li>Height: {poke.height}</li>
             <li>Weight: {poke.weight}</li>
         </ul>
-    }
-
-    if (flag) {
-        return (
-            <h1 className='error'>404: Page Not Found!</h1>
-        )
     }
 
     return (

@@ -6,6 +6,7 @@ const BerryList = (props) => {
     const [listData, setListData] = useState(undefined);
     const [nextUrl, setNext] = useState(0);
     const [previousUrl, setPrevious] = useState(0);
+    let [error, setError] = useState(false);
 
     let nextPage = null;
     let previousPage = null;
@@ -22,11 +23,19 @@ const BerryList = (props) => {
                 setPrevious(previous);
             }
             catch (e) {
+                setError(true);
                 console.log(e);
             }
         }
         fetch();
     }, [page]);
+
+    if (error || page > 3 || page < 0)
+        return (
+            <div className='error'>
+                <h1>404: Page Not Found!</h1>
+            </div>
+        )
 
     let id = 0;
     li = listData && listData.map((result) => {

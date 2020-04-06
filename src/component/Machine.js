@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const Machine = (props) => {
     let [machine, setMachine] = useState(undefined);
+    let [error, setError] = useState(false);
     const id = props.match.params.id;
 
     useEffect(() => {
@@ -11,11 +12,18 @@ const Machine = (props) => {
                 const { data } = await axios.get(`https://pokeapi.co/api/v2/machine/${id}`);
                 setMachine(data);
             } catch (e) {
-                console.log(e);
+                setError(true);
             }
         }
         fetch();
-    }, [id])
+    }, [id]);
+
+    if (error)
+        return (
+            <div className='error'>
+                <h1>404: Page Not Found!</h1>
+            </div>
+        )
 
     let ul = null;
     if (machine) {
